@@ -1,0 +1,6 @@
+SMILES,atom1,atom2,experimental_BDE,bond_type
+COc1cccc2c(=O)n(O)c(=O)c12,10,10,87.9,O-H
+CC(C)(C)C(=O)N(O)c1ccccc1,7,7,78,O-H
+CC(C)(C)N(O)C(=O)c1ccccc1,5,5,77.2,O-H
+ON=c2c1ccccc1c3ccccc23,0,0,81.8,O-H
+O/N=C(c1ccccc1)/c2ccccc2,0,0,81.6,O-H
