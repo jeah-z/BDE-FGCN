@@ -1,6 +1,6 @@
 # BDE-FGCN : A fragments based model for predicting experimental bond dissociation energy
 
-![image](https://github.com/jeah-z/BDE-FGCN/tree/main/images/Figure_S1_00.png)
+![image](https://github.com/jeah-z/BDE-FGCN/blob/main/images/Figure_S1_00.png)
 Fig. 1 Architecture of BDE-FGCN model
 
 # data format
