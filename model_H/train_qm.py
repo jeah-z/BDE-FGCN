@@ -21,7 +21,7 @@ from Alchemy_dataset_qm import TencentAlchemyDataset, batcher
 #     train_set.to_csv("delaney_train.csv", index=False)
 
 
-def train(model="sch", epochs=80, device=th.device("cpu"), train_file='', test_file='', save=''):
+def train(model="sch_qm", epochs=80, device=th.device("cpu"), train_file='', test_file='', save=''):
     print("start")
     # train_dir = "./"
     # train_file = dataset+"_train.csv"
@@ -56,10 +56,7 @@ def train(model="sch", epochs=80, device=th.device("cpu"), train_file='', test_f
 
     if model == "sch_qm":
         model = SchNetModel(norm=False, output_dim=1)
-    elif model == "mgcn":
-        model = MGCNModel(norm=False, output_dim=1)
-    elif model == "MPNN":
-        model = MPNNModel(output_dim=1)
+
     print(model)
     # if model.name in ["MGCN", "SchNet"]:
     #     model.set_mean_std(alchemy_dataset.mean, alchemy_dataset.std, device)
@@ -213,15 +210,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-M",
                         "--model",
-                        help="model name (sch, mgcn or MPNN)",
-                        default="sch")
+                        help="model name (sch_qm)",
+                        default="sch_qm")
     parser.add_argument("--epochs", help="number of epochs", default=10000)
     parser.add_argument("--train_file", help="dataset to train", default="")
     parser.add_argument("--test_file", help="dataset to test", default="")
-    parser.add_argument("--save", help="save option", default="")
-    device = th.device('cuda:3' if th.cuda.is_available() else 'cpu')
+    parser.add_argument(
+        "--save", help="directory to save the model", default="")
+    device = th.device('cuda:0' if th.cuda.is_available() else 'cpu')
     args = parser.parse_args()
-    assert args.model in ["sch_qm", "mgcn", "MPNN"]
+    assert args.model in ["sch_qm"]
     # dataset_split("delaney.csv")
     train(args.model, int(args.epochs), device,
           args.train_file, args.test_file, args.save)
